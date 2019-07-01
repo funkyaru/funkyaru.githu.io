@@ -19,7 +19,38 @@
 </style>
 <script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js">
 </script>
-<script src="javas.js">
+<script>
+var image;
+function upload(){
+	var fileinput=document.getElementById("finput");
+	var filename=fileinput.value;
+	alert("Choose " + filename);
+	image=new SimpleImage(fileinput);
+	var imgcanvas=document.getElementById("canvas");
+	image.drawTo(imgcanvas);
+	
+}
+function makegray(){
+	for(var px of image.values()){
+		var avg=(px.getRed()+px.getGreen()+px.getBlue())/3;
+		px.setRed(avg);
+		px.setGreen(avg);
+		px.setBlue(avg);
+	}
+	var imgcanvas=document.getElementById("canvas");
+	image.drawTo(imgcanvas);
+}
+
+function makered()
+{
+	for(var px of image.values())
+	{
+		px.setRed(150);
+		
+	}
+	var imgcanvas=document.getElementById("canvas");
+	image.drawTo(imgcanvas);
+}
 </script>
 
 <h1> ADD FILTERS!! </h1>
